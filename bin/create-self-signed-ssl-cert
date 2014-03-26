@@ -121,6 +121,10 @@ Perinci::CmdLine->new(url => '/main/create_ssl_cert')->run;
  # on success, will create example.com.pem
  % create-self-signed-ssl-cert example.com
 
+ # Add --trace or TRACE=1 to see everything (including executed commands)
+ % create-self-signed-ssl-cert example.com --trace
+ % TRACE=1 create-self-signed-ssl-cert example.com
+
  # see more options
  % create-self-signed-ssl-cert --help
 
