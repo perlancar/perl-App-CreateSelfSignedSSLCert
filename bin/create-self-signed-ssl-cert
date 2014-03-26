@@ -8,7 +8,6 @@ use strict;
 use warnings;
 BEGIN { no warnings; $main::Log_Level = "info" }
 
-use App::CreateSelfSignedSSL;
 use Perinci::CmdLine;
 
 # VERSION
