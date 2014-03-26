@@ -7,13 +7,12 @@ use Log::Any '$log';
 
 use Expect;
 #use File::chdir;
-use File::Temp;
+#use File::Temp;
 use Log::Any::For::Builtins qw(system);
-use Perinci::CmdLine;
 use SHARYANTO::Proc::ChildError qw(explain_child_error);
 use String::ShellQuote;
 
-sub sq { shell_quote($_[0]) }
+sub _sq { shell_quote($_[0]) }
 
 # VERSION
 
@@ -56,10 +55,10 @@ sub create_self_signed_ssl_cert {
 
     my $h = $args{hostname};
 
-    system("openssl genrsa 2048 > ".sq("$h.key"));
+    system("openssl genrsa 2048 > "._sq("$h.key"));
     return [500, "Can't generate key: ".explain_child_error()] if $?;
 
-    my $cmd = "openssl req -new -key ".sq("$h.key")." -out ".sq("$h.csr");
+    my $cmd = "openssl req -new -key "._sq("$h.key")." -out "._sq("$h.csr");
     if ($args{interactive}) {
         system $cmd;
         return [500, "Can't generate csr: ".explain_child_error()] if $?;
@@ -85,23 +84,23 @@ sub create_self_signed_ssl_cert {
     # we can provide options later, but for now let's
     system(join(
         "",
-        "openssl x509 -req -days 3650 -in ", sq("$h.csr"),
-        " -signkey ", sq("$h.key"),
-        ($args{ca} ? " -CA ".sq($args{ca}) : ""),
-        ($args{ca_key} ? " -CAkey ".sq($args{ca_key}) : ""),
+        "openssl x509 -req -days 3650 -in ", _sq("$h.csr"),
+        " -signkey ", _sq("$h.key"),
+        ($args{ca} ? " -CA "._sq($args{ca}) : ""),
+        ($args{ca_key} ? " -CAkey "._sq($args{ca_key}) : ""),
         ($args{ca} ? " -CAcreateserial" : ""),
-        " -out ", sq("$h.crt"),
+        " -out ", _sq("$h.crt"),
     ));
     return [500, "Can't generate crt: ".explain_child_error()] if $?;
 
-    system("openssl x509 -noout -fingerprint -text < ".sq("$h.crt").
-               "> ".sq("$h.info"));
+    system("openssl x509 -noout -fingerprint -text < "._sq("$h.crt").
+               "> "._sq("$h.info"));
     return [500, "Can't generate info: ".explain_child_error()] if $?;
 
-    system("cat ".sq("$h.crt")." ".sq("$h.key")." > ".sq("$h.pem"));
+    system("cat "._sq("$h.crt")." "._sq("$h.key")." > "._sq("$h.pem"));
     return [500, "Can't generate pem: ".explain_child_error()] if $?;
 
-    system("chmod 400 ".sq("$h.pem"));
+    system("chmod 400 "._sq("$h.pem"));
 
     $log->info("Your certificate has been created at $h.pem");
 

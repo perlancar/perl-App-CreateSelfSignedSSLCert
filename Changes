@@ -1,5 +1,13 @@
 Revision history for App-CreateSelfSignedSSL
 
+0.02    2014-03-26 (SHARYANTO)
+
+        - No functional changes.
+
+        - Move function from bin/ to lib/ so it's accessible outside CLI
+          context.
+
+
 0.01    2014-03-26 (SHARYANTO)
 
         - First release.

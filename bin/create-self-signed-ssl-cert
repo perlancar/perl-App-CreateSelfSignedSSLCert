@@ -9,6 +9,9 @@ use warnings;
 BEGIN { no warnings; $main::Log_Level = "info" }
 
 use App::CreateSelfSignedSSL;
+use Perinci::CmdLine;
+
+# VERSION
 
 Perinci::CmdLine->new(
     url => '/App/CreateSelfSignedSSL/create_self_signed_ssl_cert')->run;
