@@ -9,7 +9,7 @@ use Expect;
 #use File::chdir;
 #use File::Temp;
 use Log::Any::For::Builtins qw(system);
-use SHARYANTO::Proc::ChildError qw(explain_child_error);
+use Proc::ChildError qw(explain_child_error);
 use String::ShellQuote;
 
 sub _sq { shell_quote($_[0]) }
