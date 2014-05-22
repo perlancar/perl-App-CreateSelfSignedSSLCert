@@ -120,12 +120,43 @@ sub create_self_signed_ssl_cert {
     [200];
 }
 
+$SPEC{create_ssl_csr} = {
+    v => 1.1,
+    args => {
+        hostname => {
+            schema => ['str*' => match => qr/\A\w+(\.\w+)*\z/],
+            req => 1,
+            pos => 0,
+        },
+        interactive => {
+            schema => [bool => default => 0],
+            cmdline_aliases => {
+                i => {},
+            },
+        },
+        wildcard => {
+            schema => [bool => default => 0],
+            summary => 'If set to 1 then Common Name is set to *.hostname',
+            description => 'Only when non-interactive',
+        },
+    },
+    deps => {
+        # XXX should've depended on create_self_signed_ssl_cert() func instead,
+        # and dependencies should be checked recursively.
+        exec => 'openssl',
+    },
+};
+sub create_ssl_csr {
+    my %args = @_;
+    create_self_signed_ssl_cert(%args, csr_only=>1);
+}
+
 1;
 # ABSTRACT: Create self-signed SSL certificate
 
 =head1 SYNOPSIS
 
 This distribution provides command-line utility called
-L<create-self-signed-ssl-cert>.
+L<create-self-signed-ssl-cert> and L<create-ssl-csr>.
 
 =cut
