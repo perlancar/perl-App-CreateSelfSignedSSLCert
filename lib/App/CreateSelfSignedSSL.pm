@@ -45,6 +45,15 @@ $SPEC{create_self_signed_ssl_cert} = {
             summary => 'If set to 1 then Common Name is set to *.hostname',
             description => 'Only when non-interactive',
         },
+        csr_only => {
+            schema => [bool => default => 0],
+            summary => 'If set to 1 then will only generate .csr file',
+            description => <<'_',
+
+Can be useful if want to create .csr and submit it to a CA.
+
+_
+        },
     },
     deps => {
         exec => 'openssl',
@@ -71,7 +80,7 @@ sub create_self_signed_ssl_cert {
                   my $exp = shift;
                   my $prompt = $exp->exp_match;
                   if ($prompt =~ /common name/i) {
-                      $exp->send("$h\n");
+                      $exp->send(($args{wildcard} ? "*." : "") . "$h\n");
                   } else {
                       $exp->send("\n");
                   }
@@ -79,6 +88,10 @@ sub create_self_signed_ssl_cert {
               } ],
         );
         $exp->soft_close;
+    }
+    if ($args{csr_only}) {
+        $log->info("Your CSR has been created at $h.csr");
+        return [200];
     }
 
     # we can provide options later, but for now let's
