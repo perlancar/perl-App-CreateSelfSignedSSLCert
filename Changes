@@ -1,5 +1,13 @@
 Revision history for App-create-self-signed-ssl-cert
 
+0.04    2014-06-19 (SHARYANTO)
+
+        - No functinal changes.
+
+        - Rename dist from App-CreateSelfSignedSSL to
+          App-create-self-signed-ssl-cert, to reflect the name of the binary.
+
+
 0.03    2014-05-22 (SHARYANTO)
 
         - Add utility: create-ssl-csr.
