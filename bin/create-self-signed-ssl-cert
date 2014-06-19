@@ -13,7 +13,7 @@ use Perinci::CmdLine;
 # VERSION
 
 Perinci::CmdLine->new(
-    url => '/App/CreateSelfSignedSSL/create_self_signed_ssl_cert')->run;
+    url => '/App/CreateSelfSignedSSLCert/create_self_signed_ssl_cert')->run;
 
 #ABSTRACT: Create self-signed SSL certificate
 #PODNAME: create-self-signed-ssl-cert

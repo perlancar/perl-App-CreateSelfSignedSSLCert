@@ -10,7 +10,7 @@ use Perinci::CmdLine;
 # VERSION
 
 Perinci::CmdLine->new(
-    url => '/App/CreateSelfSignedSSL/create_ssl_csr')->run;
+    url => '/App/CreateSelfSignedSSLCert/create_ssl_csr')->run;
 
 #ABSTRACT: Create SSL certificate signing request (CSR)
 #PODNAME: create-ssl-csr
