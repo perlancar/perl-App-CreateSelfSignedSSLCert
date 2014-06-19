@@ -1,4 +1,15 @@
-Revision history for App-create-self-signed-ssl-cert
+Revision history for App-CreateSelfSignedSSLCert
+
+0.05    2014-06-19 (SHARYANTO)
+
+        - No functional changes.
+
+        - Revert previous decision. App dist name should still be the name of
+          the main module. When binary name is a single word (e.g. foo) then
+          module name should be App::foo and dist App-foo. When binary name is
+          multiple words (e.g. foo-bar-baz) then module name should use camel
+          case App::FooBarBaz and dist App-FooBarBaz.
+
 
 0.04    2014-06-19 (SHARYANTO)
 
