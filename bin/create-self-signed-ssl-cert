@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!perl
 
 # TODO: when non-interactive, the default is used, e.g. c=AU, ST=Some-State,
 # etc.
