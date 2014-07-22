@@ -8,11 +8,11 @@ use strict;
 use warnings;
 BEGIN { no warnings; $main::Log_Level = "info" }
 
-use Perinci::CmdLine;
+use Perinci::CmdLine::Any;
 
 # VERSION
 
-Perinci::CmdLine->new(
+Perinci::CmdLine::Any->new(
     url => '/App/CreateSelfSignedSSLCert/create_self_signed_ssl_cert')->run;
 
 #ABSTRACT: Create self-signed SSL certificate

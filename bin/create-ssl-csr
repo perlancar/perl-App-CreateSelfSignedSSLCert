@@ -5,11 +5,11 @@ use strict;
 use warnings;
 BEGIN { no warnings; $main::Log_Level = "info" }
 
-use Perinci::CmdLine;
+use Perinci::CmdLine::Any;
 
 # VERSION
 
-Perinci::CmdLine->new(
+Perinci::CmdLine::Any->new(
     url => '/App/CreateSelfSignedSSLCert/create_ssl_csr')->run;
 
 #ABSTRACT: Create SSL certificate signing request (CSR)
