@@ -1,5 +1,8 @@
 package App::CreateSelfSignedSSLCert;
 
+# DATE
+# VERSION
+
 use 5.010001;
 use strict;
 use warnings;
@@ -14,12 +17,11 @@ use String::ShellQuote;
 
 sub _sq { shell_quote($_[0]) }
 
-# VERSION
-
 our %SPEC;
 
 $SPEC{create_self_signed_ssl_cert} = {
     v => 1.1,
+    summary => 'Create self-signed SSL certificate',
     args => {
         hostname => {
             schema => ['str*' => match => qr/\A\w+(\.\w+)*\z/],
@@ -152,7 +154,7 @@ sub create_ssl_csr {
 }
 
 1;
-# ABSTRACT: Create self-signed SSL certificate
+# ABSTRACT:
 
 =head1 SYNOPSIS
 
