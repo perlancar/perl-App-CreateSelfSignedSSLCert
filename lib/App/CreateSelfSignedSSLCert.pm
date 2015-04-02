@@ -31,10 +31,12 @@ $SPEC{create_self_signed_ssl_cert} = {
         ca => {
             summary => 'path to CA cert file',
             schema => ['str*'],
+            'x.completion' => [filename => {filter=>sub{ return 1 if -d; return 0 unless -f _; return 1 if /\.(crt|pem)$/; 0 }}],
         },
         ca_key => {
             summary => 'path to CA key file',
             schema => ['str*'],
+            'x.completion' => [filename => {filter=>sub{ return 1 if -d; return 0 unless -f _; return 1 if /\.(key|pem)$/; 0 }}],
         },
         interactive => {
             schema => [bool => default => 0],
