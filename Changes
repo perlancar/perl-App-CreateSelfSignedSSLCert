@@ -1,5 +1,11 @@
 Revision history for App-CreateSelfSignedSSLCert
 
+0.09    2015-04-02 (PERLANCAR)
+
+	- [ux] Tweak Rinci metadata: add completion for ca (*.crt + *.pem
+	  files) & ca_key (*.key + *.pem files).
+
+
 0.08     2014-08-16 (SHARYANTO) - Happy 19th CPAN Day!
 
          - [build] CLI scripts are now generated automatically using
