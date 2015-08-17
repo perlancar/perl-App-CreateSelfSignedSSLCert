@@ -1,5 +1,12 @@
 Revision history for App-CreateSelfSignedSSLCert
 
+0.10    2015-08-17 (PERLANCAR)
+
+	- No functional changes.
+
+	- Switch from Log::Any to Log::Any::IfLOG.
+
+
 0.09    2015-04-02 (PERLANCAR)
 
 	- [ux] Tweak Rinci metadata: add completion for ca (*.crt + *.pem
