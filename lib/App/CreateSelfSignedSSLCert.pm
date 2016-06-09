@@ -6,6 +6,7 @@ package App::CreateSelfSignedSSLCert;
 use 5.010001;
 use strict;
 use warnings;
+use Log::Any::IfLOG '$log';
 
 use Expect;
 #use File::chdir;
