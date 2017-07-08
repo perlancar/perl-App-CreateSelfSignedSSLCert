@@ -6,7 +6,7 @@ package App::CreateSelfSignedSSLCert;
 use 5.010001;
 use strict;
 use warnings;
-use Log::Any::IfLOG '$log';
+use Log::ger;
 
 use Expect;
 #use File::chdir;
@@ -94,7 +94,7 @@ sub create_self_signed_ssl_cert {
         $exp->soft_close;
     }
     if ($args{csr_only}) {
-        $log->info("Your CSR has been created at $h.csr");
+        log_info("Your CSR has been created at $h.csr");
         return [200];
     }
 
@@ -119,7 +119,7 @@ sub create_self_signed_ssl_cert {
 
     system("chmod 400 "._sq("$h.pem"));
 
-    $log->info("Your certificate has been created at $h.pem");
+    log_info("Your certificate has been created at $h.pem");
 
     [200];
 }
