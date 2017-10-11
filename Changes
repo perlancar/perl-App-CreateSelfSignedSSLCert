@@ -1,4 +1,4 @@
-0.150   2017-10-11 (PERLANCAR) (unreleased)
+0.150   2017-10-11 (PERLANCAR)
 
 	- Split app backend to its own dist AppLib-CreateSelfSignedSSLCert so it
           can be used without having to depend on Perinci::CmdLine et al.
