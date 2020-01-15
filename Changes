@@ -56,7 +56,7 @@
 	  files) & ca_key (*.key + *.pem files).
 
 
-0.08     2014-08-16 (SHARYANTO) - Happy 19th CPAN Day!
+0.08     2014-08-16  Released-By: SHARYANTO; Note: Happy 19th CPAN Day!
 
          - [build] CLI scripts are now generated automatically using
            Dist::Zilla::Plugin::ScriptFromFunc. The plugin is still at 0.01 so the
@@ -119,3 +119,4 @@
 0.01    2014-03-26  Released-By: SHARYANTO
 
         - First release.
+
