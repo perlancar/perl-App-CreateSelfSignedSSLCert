@@ -1,4 +1,6 @@
-0.152   2023-10-05  Released-By: PERLANCAR; Urgency: medium
+0.152   2023-10-05  Released-By: PERLANCAR; Urgency: low
+
+        - No functional changes.
 
         - [doc] Mention App::sslmaker.
 
@@ -124,4 +126,3 @@
 0.01    2014-03-26  Released-By: SHARYANTO
 
         - First release.
-
