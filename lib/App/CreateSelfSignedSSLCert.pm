@@ -15,4 +15,9 @@ use strict;
 This distribution provides command-line utility called
 L<create-self-signed-ssl-cert> and L<create-ssl-csr>.
 
+
+=head1 SEE ALSO
+
+L<App::sslmaker>
+
 =cut
